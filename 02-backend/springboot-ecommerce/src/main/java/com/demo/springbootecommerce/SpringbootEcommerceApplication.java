@@ -9,4 +9,4 @@ public class SpringbootEcommerceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootEcommerceApplication.class, args);
 	}
-}	
+}
