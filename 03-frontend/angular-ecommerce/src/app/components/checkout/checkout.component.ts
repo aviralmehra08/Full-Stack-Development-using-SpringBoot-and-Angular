@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
 import { Luv2ShopFormService } from 'src/app/services/luv2-shop-form.service';
@@ -71,7 +72,7 @@ export class CheckoutComponent implements OnInit {
     );
 
       //populate countries
-      this.luv2ShopFormService.getCounties().subscribe(
+      this.luv2ShopFormService.getCountries().subscribe(
         data=>{
           console.log("Retrieved countries: "+JSON.stringify(data));
           this.countries = data;
@@ -126,8 +127,8 @@ export class CheckoutComponent implements OnInit {
 
     const countryCode = formGroup?.value.country.code;
     const countryName = formGroup?.value.country.name;
-    console.log(`${formGroupName} country code:${countryCode}`);
-    console.log(`${formGroupName} country name:${countryName}`);
+    console.log(`${formGroupName} country code: ${countryCode}`);
+    console.log(`${formGroupName} country name: ${countryName}`);
 
     this.luv2ShopFormService.getStates(countryCode).subscribe(
       data=>{

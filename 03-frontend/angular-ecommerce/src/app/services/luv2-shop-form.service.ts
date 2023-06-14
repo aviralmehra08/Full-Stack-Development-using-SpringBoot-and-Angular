@@ -13,7 +13,7 @@ export class Luv2ShopFormService {
   private statesUrl = 'http://localhost:8080/api/states';
   constructor(private httpClient: HttpClient) { }
 
-  getCounties(): Observable<Country[]> {
+  getCountries(): Observable<Country[]> {
     return this.httpClient.get<GetResponseCountries>(this.countriesUrl).pipe(
       map(response => response._embedded.countries)
     );
